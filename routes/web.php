@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", "IndexController")->name("index");
-Route::get("/menu", "MenuController@get")->name("menu");
-Route::get("/shop", "ShopController@get")->name("shop");
+Route::redirect("/", "/todo")->name("index");
+Route::get("/todo", "TodoController@index")->name("todo.index");
+Route::get("/todo/create", "TodoController@create")->name("todo.create");
+Route::post("/todo", "TodoController@store")->name("todo.store");
+Route::get("/todo/{id}", "TodoController@show")->name("todo.show");
+Route::put("/todo/{id}/toggleDone", "TodoController@toggleDone")->name("todo.toggleDone");
