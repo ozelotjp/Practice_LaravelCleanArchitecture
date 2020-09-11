@@ -26,6 +26,9 @@ class TodoEloquent implements TodoGateway
         );
     }
 
+    /**
+     * @return Todo[]
+     */
     public function getAll(): array
     {
         $todos = [];

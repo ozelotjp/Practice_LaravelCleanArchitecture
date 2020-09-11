@@ -9,6 +9,9 @@ use Package\Domain\Todo\TodoText;
 
 interface TodoGateway
 {
+    /**
+     * @return Todo[]
+     */
     public function getAll(): array;
 
     public function get(TodoId $id): Todo;
