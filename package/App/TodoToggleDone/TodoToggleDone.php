@@ -4,13 +4,13 @@ namespace Package\App\TodoToggleDone;
 
 use Carbon\Carbon;
 use Package\Domain\Todo\TodoDoneAt;
-use Package\Infra\TodoGatewayInterface;
+use Package\Infra\DB\TodoGateway;
 
 class TodoToggleDone
 {
     private $gateway;
 
-    public function __construct(TodoGatewayInterface $gateway)
+    public function __construct(TodoGateway $gateway)
     {
         $this->gateway = $gateway;
     }

@@ -2,13 +2,13 @@
 
 namespace Package\App\TodoShow;
 
-use Package\Infra\TodoGatewayInterface;
+use Package\Infra\DB\TodoGateway;
 
 class TodoShow
 {
     private $gateway;
 
-    public function __construct(TodoGatewayInterface $gateway)
+    public function __construct(TodoGateway $gateway)
     {
         $this->gateway = $gateway;
     }

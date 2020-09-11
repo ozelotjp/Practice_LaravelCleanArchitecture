@@ -1,13 +1,13 @@
 <?php
 
-namespace Package\Infra;
+namespace Package\Infra\DB;
 
 use Package\Domain\Todo\Todo;
 use Package\Domain\Todo\TodoDoneAt;
 use Package\Domain\Todo\TodoId;
 use Package\Domain\Todo\TodoText;
 
-interface TodoGatewayInterface
+interface TodoGateway
 {
     public function getAll(): array;
 

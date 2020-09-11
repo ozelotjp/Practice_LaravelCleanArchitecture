@@ -1,6 +1,6 @@
 <?php
 
-namespace Package\Infra\Eloquent;
+namespace Package\Infra\DB\Eloquent;
 
 use App\Models\TodoModel;
 use Package\Domain\Todo\Todo;
@@ -9,9 +9,9 @@ use Package\Domain\Todo\TodoDoneAt;
 use Package\Domain\Todo\TodoId;
 use Package\Domain\Todo\TodoText;
 use Package\Domain\Todo\TodoUpdatedAt;
-use Package\Infra\TodoGatewayInterface;
+use Package\Infra\DB\TodoGateway;
 
-class TodoGateway implements TodoGatewayInterface
+class TodoEloquent implements TodoGateway
 {
     public function get(TodoId $id): Todo
     {
