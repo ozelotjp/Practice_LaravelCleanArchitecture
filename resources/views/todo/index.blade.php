@@ -1,6 +1,6 @@
 @extends("layouts.app")
 
-@php /** @var \Package\Presenters\ViewModel\TodoViewModel[] $todos */ @endphp
+@php /** @var \Package\ViewModel\TodoViewModel[] $todos */ @endphp
 
 @section("content")
     <nav class="mt-3">
