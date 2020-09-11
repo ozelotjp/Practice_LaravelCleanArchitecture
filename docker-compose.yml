@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  php:
+    build: .docker/php
+    tty: true
+    depends_on:
+      - mysql
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app:delegated
+  mysql:
+    image: mysql:8
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: enable
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+      MYSQL_DATABASE: laravel
+    volumes:
+      - mysql-data:/var/lib/mysql
+  pma:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - mysql
+    ports:
+      - 80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: laravel
+      PMA_PASSWORD: laravel
+      PMA_DATABASE: laravel
+
+volumes:
+  mysql-data:
+    driver: local
