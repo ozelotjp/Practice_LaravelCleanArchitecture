@@ -1,0 +1,20 @@
+<?php
+
+namespace Package\App\%domain%%method%;
+
+use Package\Domain\%domain%\%domain%;
+
+class %domain%%method%Response
+{
+    private $%domain_l%;
+
+    public function __construct(%domain% $%domain_l%)
+    {
+        $this->%domain_l% = $%domain_l%;
+    }
+
+    public function %domain_l%(): %domain%
+    {
+        return $this->%domain_l%;
+    }
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace Package\App\%domain%%method%;
+
+use Package\Domain\%domain%\%domain%Id;
+
+interface %domain%%method%Request
+{
+    public function id(): %domain%Id;
+}

@@ -1,0 +1,21 @@
+<?php
+
+namespace Package\App\%domain%%method%;
+
+use Illuminate\Http\Request;
+use Package\Domain\%domain%\%domain%Id;
+
+class %domain%%method%Controller implements %domain%%method%Request
+{
+    private $request;
+
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
+    public function id(): %domain%Id
+    {
+        return new %domain%Id($this->request->route('id'));
+    }
+}

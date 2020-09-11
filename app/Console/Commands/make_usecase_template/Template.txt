@@ -1,0 +1,22 @@
+<?php
+
+namespace Package\App\%domain%%method%;
+
+use Package\Infra\%domain%GatewayInterface;
+
+class %domain%%method%
+{
+    private $gateway;
+
+    public function __construct(%domain%GatewayInterface $gateway)
+    {
+        $this->gateway = $gateway;
+    }
+
+    public function execute(%domain%%method%Request $request): %domain%%method%Response
+    {
+        $%domain_l% = $this->gateway->get($request->id());
+
+        return new %domain%%method%Response($%domain_l%);
+    }
+}

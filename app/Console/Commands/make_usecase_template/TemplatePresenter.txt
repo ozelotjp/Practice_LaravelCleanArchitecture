@@ -1,0 +1,15 @@
+<?php
+
+namespace Package\App\%domain%%method%;
+
+use Package\ViewModel\%domain%ViewModel;
+
+class %domain%%method%Presenter
+{
+    public function execute(%domain%%method%Response $output)
+    {
+        $%domain_l% = new %domain%ViewModel($output->%domain_l%());
+
+        return view('%domain_l%.%method%', ['id' => $%domain_l%->id])->with(compact('%domain_l%'));
+    }
+}
