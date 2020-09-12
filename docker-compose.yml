@@ -20,17 +20,6 @@ services:
       MYSQL_DATABASE: laravel
     volumes:
       - mysql-data:/var/lib/mysql
-  pma:
-    image: phpmyadmin/phpmyadmin
-    depends_on:
-      - mysql
-    ports:
-      - 80
-    environment:
-      PMA_HOST: mysql
-      PMA_USER: laravel
-      PMA_PASSWORD: laravel
-      PMA_DATABASE: laravel
 
 volumes:
   mysql-data:
