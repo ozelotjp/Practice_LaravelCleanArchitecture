@@ -13,15 +13,23 @@ CleanArchitectureのコードは */app/Http/Controllers/* と */package* にあ�
 
 ## How to develop
 
-- 予めDockerをインストールしてください。
-- `docker-compose up -d --build` で起動します。
-- `docker-compose exec php sh` でPHPコンテナにアクセスします。
-  - `composer install` でパッケージをインストールします。
-  - `cp .env.example .env` でenvファイルを複製します。
-  - `php artisan key:generate` で *APP_KEY* を設定します。
-  - `php artisan migrate` でDBを初期化します。
-  - `php artisan ide-helper:generate && php artisan ide-helper:meta && php artisan ide-helper:eloquent` でIDE用のファイルとコードを生成します。なお *ide-helper:model* はすでに完了しているので、実行する必要はありません。
-- http://localhost:8000 にアクセスします。
+予めDockerをインストールしてください。
+
+```sh
+docker-compose up -d --build
+docker-compose exec php sh
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan storage:link
+php artisan ide-helper:generate && php artisan ide-helper:meta && php artisan ide-helper:eloquent
+chown -R www-data:www-data ./
+exit
+docker-compose down
+```
+
+これで準備は完了です。次回からは `docker-compose up -d` を行い http://llocalhost:8000 にアクセスします。
 
 ## Reference
 
@@ -29,6 +37,3 @@ CleanArchitectureのコードは */app/Http/Controllers/* と */package* にあ�
 
 - [Laravelで実践クリーンアーキテクチャ](https://qiita.com/nrslib/items/aa49d10dd2bcb3110f22)
 - [Laravel × Clean Architecture 新規開発中の現場](https://speakerdeck.com/ianbrison/laravel-x-clean-architecture-xin-gui-kai-fa-zhong-falsexian-chang)
-
-chown -R www-data:www-data ./
-
