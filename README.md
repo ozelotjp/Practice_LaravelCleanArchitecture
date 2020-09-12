@@ -30,3 +30,5 @@ CleanArchitectureのコードは */app/Http/Controllers/* と */package* にあ�
 - [Laravelで実践クリーンアーキテクチャ](https://qiita.com/nrslib/items/aa49d10dd2bcb3110f22)
 - [Laravel × Clean Architecture 新規開発中の現場](https://speakerdeck.com/ianbrison/laravel-x-clean-architecture-xin-gui-kai-fa-zhong-falsexian-chang)
 
+chown -R www-data:www-data ./
+

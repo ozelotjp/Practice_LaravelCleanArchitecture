@@ -1,5 +1,5 @@
-FROM php:7.4-alpine
-WORKDIR /app
+FROM php:7.4-fpm-alpine
+WORKDIR /var/www/html
 
 # 開発用パッケージをインストール
 RUN apk add --no-cache git

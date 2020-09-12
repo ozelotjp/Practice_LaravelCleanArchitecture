@@ -1,17 +1,24 @@
 version: '3'
 
 services:
+  web:
+    build: .docker/nginx
+    depends_on:
+      - php
+    ports:
+      - 8000:80
+    volumes:
+      - .:/var/www/html:delegated
   php:
     build: .docker/php
-    tty: true
     depends_on:
       - mysql
-    ports:
-      - 8000:8000
     volumes:
-      - .:/app:delegated
+      - .:/var/www/html:delegated
   mysql:
     image: mysql:8
+    ports:
+      - 3306
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: enable
