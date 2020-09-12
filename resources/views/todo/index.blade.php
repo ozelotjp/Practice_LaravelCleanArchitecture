@@ -16,4 +16,11 @@
             </a>
         @endforeach
     </div>
+    <div class="mt-3">
+        <a href="{{ route("todo.outputAsCSVFile") }}">
+            <button class="btn btn-primary">
+                ダウンロード（CSV）
+            </button>
+        </a>
+    </div>
 @endsection

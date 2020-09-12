@@ -23,6 +23,7 @@ Route::group([
     Route::get('/', [TodoController::class, 'index'])->name('index');
     Route::get('/create', [TodoController::class, 'create'])->name('create');
     Route::post('/', [TodoController::class, 'store'])->name('store');
+    Route::get('/outputAsCSVFile', [TodoController::class, 'outputAsCSVFile'])->name('outputAsCSVFile');
     Route::get('/{id}', [TodoController::class, 'show'])->name('show');
     Route::put('/{id}/toggleDone', [TodoController::class, 'toggleDone'])->name('toggleDone');
 });
