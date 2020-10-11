@@ -2,51 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Package\App\TodoIndex\TodoIndex;
-use Package\App\TodoIndex\TodoIndexController;
-use Package\App\TodoIndex\TodoIndexPresenter;
-use Package\App\TodoOutputAsCsvFile\TodoOutputAsCsvFile;
-use Package\App\TodoOutputAsCsvFile\TodoOutputAsCsvFileController;
-use Package\App\TodoOutputAsCsvFile\TodoOutputAsCsvFilePresenter;
-use Package\App\TodoShow\TodoShow;
-use Package\App\TodoShow\TodoShowController;
-use Package\App\TodoShow\TodoShowPresenter;
-use Package\App\TodoStore\TodoStore;
-use Package\App\TodoStore\TodoStoreController;
-use Package\App\TodoStore\TodoStorePresenter;
-use Package\App\TodoToggleDone\TodoToggleDone;
-use Package\App\TodoToggleDone\TodoToggleDoneController;
-use Package\App\TodoToggleDone\TodoToggleDonePresenter;
+use Package\Http\TodoCreate;
+use Package\Http\TodoIndex;
+use Package\Http\TodoOutputAsCSVFile;
+use Package\Http\TodoShow;
+use Package\Http\TodoStore;
+use Package\Http\TodoToggleDone;
 
 class TodoController extends Controller
 {
-    public function index(TodoIndexController $controller, TodoIndex $usecase, TodoIndexPresenter $presenter)
+    public function index(TodoIndex $todoIndex)
     {
-        return $presenter->execute($usecase->execute($controller));
+        return $todoIndex->execute();
     }
 
-    public function create()
+    public function create(TodoCreate $todoCreate)
     {
-        return view('todo.create');
+        return $todoCreate->execute();
     }
 
-    public function store(TodoStoreController $controller, TodoStore $usecase, TodoStorePresenter $presenter)
+    public function store(TodoStore $todoStore)
     {
-        return $presenter->execute($usecase->execute($controller));
+        return $todoStore->execute();
     }
 
-    public function show(TodoShowController $controller, TodoShow $usecase, TodoShowPresenter $presenter)
+    public function show(TodoShow $todoShow)
     {
-        return $presenter->execute($usecase->execute($controller));
+        return $todoShow->execute();
     }
 
-    public function toggleDone(TodoToggleDoneController $controller, TodoToggleDone $usecase, TodoToggleDonePresenter $presenter)
+    public function toggleDone(TodoToggleDone $todoToggleDone)
     {
-        return $presenter->execute($usecase->execute($controller));
+        return $todoToggleDone->execute();
     }
 
-    public function outputAsCSVFile(TodoOutputAsCsvFileController $controller, TodoOutputAsCsvFile $usecase, TodoOutputAsCsvFilePresenter $presenter)
+    public function outputAsCSVFile(TodoOutputAsCSVFile $todoOutputAsCSVFile)
     {
-        return $presenter->execute($usecase->execute($controller));
+        return $todoOutputAsCSVFile->execute();
     }
 }

@@ -3,13 +3,16 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Package\Infra\DB\Eloquent\TodoEloquent;
-use Package\Infra\DB\TodoGateway;
+use Package\Gateway\ITodoDatabase;
+use Package\Gateway\ITodoFile;
+use Package\Infra\TodoDatabase;
+use Package\Infra\TodoFile;
 
 class AppServiceProvider extends ServiceProvider
 {
     public $bindings = [
-        TodoGateway::class => TodoEloquent::class
+        ITodoDatabase::class => TodoDatabase::class,
+        ITodoFile::class => TodoFile::class
     ];
 
     /**
