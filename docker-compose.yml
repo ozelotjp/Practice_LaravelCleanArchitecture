@@ -1,18 +1,13 @@
 version: '3'
 
 services:
-  web:
-    build: .docker/nginx
-    depends_on:
-      - php
-    ports:
-      - 8000:80
-    volumes:
-      - .:/var/www/html:delegated
   php:
     build: .docker/php
+    tty: true
     depends_on:
       - mysql
+    ports:
+      - 8000:8000
     volumes:
       - .:/var/www/html:delegated
   mysql:
